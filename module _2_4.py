@@ -4,11 +4,14 @@ not_primes = []
 a = 2
 b = len(numbers)
 for i in range(a, b + 1):
-    k = 0
-    for j in range(a, b + 1):
-        if i % j == 0 and i != j and j != 1:
-            k += 1
-    if k == 0:
+    if i == 1:
+        continue
+    is_prime = True
+    for j in range(a, i):
+        if i % j == 0:
+            is_prime = False
+            break
+    if is_prime:
         primes.append(i)
     else:
         not_primes.append(i)
